@@ -1,0 +1,25 @@
+$color-red: #DE4B4B;
+
+$color-white: white;
+$color-light: #C9C9C9;
+$color-dark: #3C3C3C;
+$color-black: #000;
+
+@mixin gradient($deg, $color1, $color2) {
+  background: $color1;
+  background: -moz-linear-gradient($deg, $color1 0%, $color2 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, $color1), color-stop(100%, $color2));
+  background: -webkit-linear-gradient($deg, $color1 0%, $color2 100%);
+  background: -o-linear-gradient($deg, $color1 0%, $color2 100%);
+  background: -ms-linear-gradient($deg, $color1 0%, $color2 100%);
+  background: linear-gradient($deg, $color1 0%, $color2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}', GradientType=1 );
+}
+
+@mixin radialGradient($color1, $color2) {
+  background: $color2;
+  background: -moz-radial-gradient(center, ellipse cover,  $color2 0%, $color1 100%);
+  background: -webkit-radial-gradient(center, ellipse cover,  $color2 0%,$color1 100%);
+  background: radial-gradient(ellipse at center,  $color2 0%,$color1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color2}', endColorstr='#{$color1}',GradientType=1 );
+}

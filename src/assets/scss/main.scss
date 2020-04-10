@@ -1,0 +1,59 @@
+@import "variables/_colors.scss";
+
+/*
+* Declaration order
+*/
+
+/* Positioning */
+
+/* Box model */
+
+/* Typographic */
+
+/* Visual */
+
+/* Animation */
+
+/* Misc */
+
+//Global styles
+body {
+  /* Box model */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  > * {
+    /* Box model */
+    box-sizing: border-box;
+    margin: 0;
+  }
+  h1, h2, h3, h4, h5, h6, p, div, span, section {
+    /* Box model */
+    box-sizing: border-box;
+    margin: 0;
+  }
+  input, select, textarea, button {
+    /* Box model */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Visual */
+    border: 0 none;
+
+    /* Misc */
+    outline: none;
+    &:focus, &:active { outline: none }
+  }
+  a {
+    /* Typographic */
+    color: $color-red;
+    text-decoration: none;
+  }
+}
+
+[disabled="disabled"]{
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}
