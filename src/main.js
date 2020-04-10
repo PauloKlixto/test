@@ -3,11 +3,16 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import maskFilters from '@/plugins/mask/maskFilters.js'
 
 Vue.config.productionTip = false
 
 // Photons
 import { Icon } from '@/components/photons'
+
+// Create Masks
+maskFilters.noSpecialCharacters()
+maskFilters.setFilters()
 
 // Global Components
 Vue.component('Icon', Icon)
