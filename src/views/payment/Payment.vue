@@ -6,16 +6,33 @@
         label="Alterar forma de pagamento"
         is-inverted-theme
       />
+      <BaseHeading
+        class="Payment__headingText"
+        label="Adicione um novo cartão de crédito"
+        icon="credit-card"
+      />
+      <BaseCreditCard :form="form" />
     </section>
     <section class="Payment__form">Form</section>
   </main>
 </template>
 
 <script>
-import { BaseBackButton } from '@/components/atoms'
+import { BaseBackButton, BaseCreditCard, BaseHeading } from '@/components/atoms'
 export default {
   name: 'Payment',
-  components: { BaseBackButton }
+  components: { BaseBackButton, BaseCreditCard, BaseHeading },
+  data() {
+    return {
+      form: {
+        card_name: '',
+        card_number: '',
+        card_month: '',
+        card_year: '',
+        card_cvv: ''
+      }
+    }
+  }
 }
 </script>
 
@@ -31,10 +48,15 @@ export default {
     padding-top: $space-xl;
     padding-left: $space-xl;
     padding-bottom: $space-xl;
+    padding-right: $space-md;
   }
 
   &__backButton {
     margin-bottom: $space-xl;
+  }
+
+  &__headingText {
+    margin-bottom: $space-lg;
   }
 
   &__form {
