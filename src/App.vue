@@ -39,6 +39,10 @@ export default {
 
   &__container {
     grid-area: container;
+    padding: $space-xl 0;
+    display: grid;
+    grid-template-columns: 1024px 1fr;
+    grid-gap: $space-md;
   }
 }
 </style>
