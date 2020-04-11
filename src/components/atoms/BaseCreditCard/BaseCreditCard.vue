@@ -130,7 +130,10 @@ export default {
   methods: {
     bgPreviewStyles(bg, bgInative) {
       return {
-        background: this.company === '' ? `url(${bgInative})` : `url(${bg})`
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundImage:
+          this.company === '' ? `url(${bgInative})` : `url(${bg})`
       }
     },
     setCreditCardWith() {
@@ -169,6 +172,10 @@ export default {
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2),
     2px 2px 5px rgba(0, 0, 0, 0.3);
   font-size: 16px;
+
+  @media (max-width: 445px) {
+    font-size: 10px;
+  }
 }
 
 .BaseCreditCard {
@@ -178,6 +185,12 @@ export default {
   box-shadow: 0px 10px 10px -8px rgba(0, 0, 0, 0.4);
   border-radius: 11px;
   transition: transform 0.5s;
+
+  @media (max-width: 445px) {
+    width: 240px;
+    height: 147.5px;
+    box-shadow: none;
+  }
 
   &--move {
     transform: rotateY(180deg);
@@ -212,6 +225,9 @@ export default {
     /* Box model */
     flex: 1;
     display: flex;
+    @media (max-width: 445px) {
+      transform: scale(0.75) translateX(-30px);
+    }
   }
 
   &__bottom {
@@ -257,6 +273,10 @@ export default {
 
     /* Misc */
     @extend %creditCardText;
+
+    @media (max-width: 445px) {
+      font-size: 15.5px;
+    }
   }
 }
 </style>
