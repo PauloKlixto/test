@@ -33,8 +33,9 @@ export default paymentOptions => [
     model: 'card_date',
     rules: ['required'],
     props: {
+      mask: 'cardDate',
       label: 'Validade',
-      type: 'number',
+      type: 'text',
       floatingLabel: true,
       invalidLabel: 'Data inválida'
     }

@@ -14,6 +14,16 @@ export default {
     return value
   },
 
+  cardDate(value, el) {
+    if (el) el.maxLength = 7
+
+    if (typeof value === 'number') value = String(value)
+    if (typeof value !== 'string') return value
+
+    value = value.replace(/(\d{2})(\d)/, '$1/$2')
+    return value
+  },
+
   letters(value) {
     value = value.replace(/[^a-zA-Z\s/]+$/g, '')
     return value

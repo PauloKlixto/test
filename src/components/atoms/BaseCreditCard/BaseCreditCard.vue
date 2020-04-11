@@ -2,91 +2,105 @@
   <section
     ref="creditCardPreview"
     class="BaseCreditCard"
-    :style="creditCardPreviewStyles"
+    :class="BaseCreditCardClasses"
   >
-    <div class="BaseCreditCard__top">
-      <Icon
-        :name="cardStylesData.image"
-        path="images/cards"
-        :style="creditCardIconStyles"
-      />
-    </div>
-    <div class="BaseCreditCard__bottom">
-      <p class="BaseCreditCard__cardNumber" :style="colorCardInBg">
-        {{ creditCardPreviewNumber }}
-      </p>
-      <p class="BaseCreditCard__cardName" :style="colorCardInBg">
-        {{ cardName }}
-      </p>
-      <p class="BaseCreditCard__validAt">
-        <span class="BaseCreditCard__validAt--value" :style="colorCardInBg">
-          {{ cardDate }}
-        </span>
-      </p>
-      <!-- <p class="BaseCreditCard__cvv">
-        <span class="BaseCreditCard__cvv--label">cvv</span>
-        <span class="BaseCreditCard__cvv--value" :style="colorCardInBg">
-          {{ cardCvv }}
-        </span>
-      </p> -->
+    <div class="BaseCreditCard__background" :style="creditCardPreviewStyles">
+      <div class="BaseCreditCard__top">
+        <Icon
+          v-if="company"
+          :name="cardStylesData.image"
+          path="images/cards"
+          :style="creditCardIconStyles"
+        />
+      </div>
+      <div class="BaseCreditCard__bottom">
+        <p class="BaseCreditCard__cardNumber">
+          {{ creditCardPreviewNumber }}
+        </p>
+        <p class="BaseCreditCard__cardName">
+          {{ cardName || 'Nome do titular' }}
+        </p>
+        <p class="BaseCreditCard__validAt">
+          <span class="BaseCreditCard__validAt--value">
+            {{ creditCardPreviewDate }}
+          </span>
+        </p>
+      </div>
+      <div class="BaseCreditCard__cvv">
+        {{ editedCvv }}
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import creditCardInative from '@/assets/images/credit-card-inative.svg'
+import creditCardInativeInverse from '@/assets/images/credit-card-inative-inverse.svg'
 import creditCard from '@/assets/images/credit-card.svg'
+import creditCardInverse from '@/assets/images/credit-card-inverse.svg'
 
 export default {
   name: 'BaseCreditCard',
   props: {
-    form: {
-      type: Object,
-      required: true
-    },
     cardNumber: {
       type: String,
-      default: '**** **** **** ****'
+      default: ''
     },
     cardName: {
       type: String,
-      default: 'Nome do titular'
+      default: ''
     },
     cardDate: {
       type: String,
-      default: '00/00'
+      default: ''
     },
     cardCvv: {
       type: String,
-      default: '***'
+      default: ''
     },
     company: {
       type: String,
-      default: 'default'
+      default: ''
     }
   },
   data() {
     return {
-      creditCardWith: 0
+      creditCardWith: 0,
+      hasChangingCardCvv: false
+    }
+  },
+  watch: {
+    cardCvv() {
+      this.hasChangingCardCvv = true
+    },
+    cardNumber() {
+      this.hasChangingCardCvv = false
+    },
+    cardName() {
+      this.hasChangingCardCvv = false
+    },
+    cardDate() {
+      this.hasChangingCardCvv = false
     }
   },
   computed: {
+    BaseCreditCardClasses() {
+      return { 'BaseCreditCard--move': this.hasChangingCardCvv }
+    },
     creditCardPreviewStyles() {
-      return {
-        background:
-          this.company === 'default'
-            ? `url(${creditCardInative})`
-            : `url(${creditCard})`
-      }
+      return this.hasChangingCardCvv
+        ? this.bgPreviewStyles(creditCardInverse, creditCardInativeInverse)
+        : this.bgPreviewStyles(creditCard, creditCardInative)
+    },
+    editedCvv() {
+      let code = '*'
+      return code.repeat(this.cardCvv.length)
     },
     creditCardIconStyles() {
       return { height: this.cardStylesData.height }
     },
-    colorCardInBg() {
-      return { backgroundColor: this.cardStylesData.color }
-    },
     creditCardPreviewNumber() {
-      if (this.cardNumber === '**** **** **** ****') return this.cardNumber
+      if (this.cardNumber === '') return '**** **** **** ****'
 
       let value = this.cardNumber
 
@@ -97,15 +111,28 @@ export default {
 
       return value
     },
+    creditCardPreviewDate() {
+      if (this.cardDate === '') return '00/00'
+
+      let value = this.cardDate
+
+      value = value = value.replace(/(\d{2})(\d)/, '$1/$2')
+
+      return value
+    },
     cardStylesData() {
-      if (this.company) return this.cardStylesByCompany(this.company)
-      return this.cardStylesObject('maestro', '30px')
+      return this.cardStylesByCompany(this.company)
     }
   },
   mounted() {
     this.setCreditCardWith()
   },
   methods: {
+    bgPreviewStyles(bg, bgInative) {
+      return {
+        background: this.company === '' ? `url(${bgInative})` : `url(${bg})`
+      }
+    },
     setCreditCardWith() {
       this.creditCardWith = this.$refs.creditCardPreview.offsetWidth
     },
@@ -126,8 +153,7 @@ export default {
           mastercard: this.cardStylesObject('mastercard', '30px'),
           mir: this.cardStylesObject('mir'),
           unionpay: this.cardStylesObject('unionpay', '30px'),
-          visa: this.cardStylesObject('visa'),
-          default: this.cardStylesObject('maestro', '30px')
+          visa: this.cardStylesObject('visa')
         }
       }
 
@@ -138,30 +164,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-%cardAnimation {
-  transition: background 1s ease;
-}
-
 %creditCardText {
   color: $color-white;
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2),
     2px 2px 5px rgba(0, 0, 0, 0.3);
   font-size: 16px;
-  @extend %cardAnimation;
 }
 
 .BaseCreditCard {
   /* Box model */
   width: 365px;
   height: 224.4px;
-  display: flex;
-  flex-flow: column;
-  padding: 2rem;
   box-shadow: 0px 10px 10px -8px rgba(0, 0, 0, 0.4);
   border-radius: 11px;
+  transition: transform 0.5s;
 
-  /* Misc */
-  @extend %cardAnimation;
+  &--move {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+
+    .BaseCreditCard__top,
+    .BaseCreditCard__bottom {
+      display: none;
+    }
+
+    .BaseCreditCard__background {
+      transform: rotateY(180deg);
+    }
+
+    .BaseCreditCard__cvv {
+      display: block;
+    }
+  }
+
+  &__background {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-flow: column;
+    padding: 2rem;
+  }
 
   &__top {
     /* Positioning */
@@ -170,36 +212,29 @@ export default {
     /* Box model */
     flex: 1;
     display: flex;
-    justify-content: flex-end;
   }
 
   &__bottom {
     /* Box model */
     flex: 1;
     display: grid;
-    grid-template-rows: 1fr repeat(2, 22.5px);
-    grid-template-columns: 1fr 72px;
+    grid-template-rows: 1fr 25px;
+    grid-template-columns: 1fr 80px;
     grid-template-areas:
       'card card'
-      'name name'
-      'validAt cvv';
+      'name validAt';
+  }
+
+  &__cvv {
+    display: none;
+    transform: translate3d(140px, 80px, 0);
   }
 
   &__validAt {
     grid-area: validAt;
-  }
+    text-align: right;
 
-  &__cvv {
-    grid-area: cvv;
-  }
-
-  &__validAt,
-  &__cvv {
     &--value {
-      /* Typographic */
-      font-size: 20px;
-
-      /* Misc */
       @extend %creditCardText;
     }
   }
