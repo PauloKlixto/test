@@ -1,3 +1,13 @@
+//Elements
+@mixin chevronAlt($color) {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid $color;
+  border-left: 2px solid $color;
+  position: absolute;
+}
+
 //Animations
 @mixin basicAnimation($type, $duration) {
   animation: $type $duration ease;
