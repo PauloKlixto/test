@@ -14,20 +14,20 @@
         />
       </div>
       <div class="BaseCreditCard__bottom">
-        <p class="BaseCreditCard__cardNumber">
+        <em class="BaseCreditCard__cardNumber">
           {{ creditCardPreviewNumber }}
-        </p>
-        <p class="BaseCreditCard__cardName">
+        </em>
+        <em class="BaseCreditCard__cardName">
           {{ cardName || 'Nome do titular' }}
-        </p>
-        <p class="BaseCreditCard__validAt">
+        </em>
+        <em class="BaseCreditCard__validAt">
           <span class="BaseCreditCard__validAt--value">
             {{ creditCardPreviewDate }}
           </span>
-        </p>
+        </em>
       </div>
       <div class="BaseCreditCard__cvv">
-        {{ editedCvv }}
+        <em>{{ editedCvv }}</em>
       </div>
     </div>
   </section>
@@ -172,6 +172,7 @@ export default {
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2),
     2px 2px 5px rgba(0, 0, 0, 0.3);
   font-size: 16px;
+  // font-family: $font-sf;
 
   @media (max-width: 445px) {
     font-size: 10px;
@@ -270,6 +271,7 @@ export default {
 
     /* Typographic */
     font-size: 24px;
+    letter-spacing: 2px;
 
     /* Misc */
     @extend %creditCardText;

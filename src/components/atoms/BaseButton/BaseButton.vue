@@ -7,9 +7,9 @@
     :disabled="disabled"
     @click="click"
   >
-    <span v-if="!!label" class="BaseButton__Text">
+    <em v-if="!!label" class="BaseButton__Text">
       {{ label }}
-    </span>
+    </em>
   </component>
 </template>
 
@@ -66,7 +66,7 @@ export default {
     text-align: center;
     display: block;
     width: 100%;
+    font-weight: 600;
   }
-
 }
 </style>

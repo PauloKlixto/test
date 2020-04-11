@@ -52,6 +52,12 @@ body {
     color: $color-red;
     text-decoration: none;
   }
+  
+  /* Font SF global */
+  em {
+    font-family: $font-sf;
+    font-style: normal;
+  }
 }
 
 [disabled="disabled"]{
