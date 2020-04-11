@@ -56,12 +56,7 @@ export default {
   cursor: pointer;
 
   &:before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-top: 2px solid $color-white;
-    border-left: 2px solid $color-white;
-    position: absolute;
+    @include chevronAlt($color-white);
     left: 0;
     transform: rotateZ(-45deg) translateY(5px);
   }

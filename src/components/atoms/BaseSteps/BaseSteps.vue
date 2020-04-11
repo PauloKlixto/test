@@ -32,12 +32,6 @@ export default {
     display: flex;
     align-items: center;
     &:before {
-      //   content: '';
-      //   width: 8px;
-      //   height: 8px;
-      //   border-top: 2px solid $color-red;
-      //   border-left: 2px solid $color-red;
-      //   position: absolute;
       @include chevronAlt($color-red);
       left: 20px;
       transform: rotateZ(135deg) translateY(0px);
