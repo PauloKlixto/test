@@ -33,7 +33,7 @@ export default {
     grid-template-columns: 1fr 560px;
     align-items: center;
 
-    @media screen and (max-width: $viewport-md) {
+    @media (max-width: $viewport-md) {
       grid-template-columns: 1fr;
     }
   }
@@ -49,7 +49,7 @@ export default {
     /* Visual */
     list-style: none;
 
-    @media screen and (max-width: $viewport-md) {
+    @media (max-width: $viewport-md) {
       display: none;
     }
   }

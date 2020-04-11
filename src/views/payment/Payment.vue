@@ -6,12 +6,14 @@
         label="Alterar forma de pagamento"
         is-inverted-theme
       />
+      <BaseSteps :steps="steps" class="Payment__stepsInSidebar" invert-colors />
       <BaseHeading
         class="Payment__headingText"
         label="Adicione um novo cartão de crédito"
         icon="credit-card"
       />
       <BaseCreditCard
+        class="Payment__creditCard"
         :card-number="form.card_number"
         :card-name="form.card_name"
         :card-date="form.card_date"
@@ -92,11 +94,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$responsiveValue: 960px;
+
 .Payment {
   background: $color-white;
   min-height: calc(100vh - 200px);
   display: grid;
   grid-template-columns: 352px 1fr;
+
+  @media (max-width: $responsiveValue) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 240px 1fr;
+  }
 
   &__sidebar {
     background-color: $color-red;
@@ -104,14 +113,47 @@ export default {
     padding-left: $space-xl;
     padding-bottom: $space-xl;
     padding-right: $space-md;
+
+    @media (max-width: $responsiveValue) {
+      display: grid;
+      padding: 0;
+      grid-template-columns: 40px 1fr 40px;
+      grid-template-rows: 70px 70px 1fr;
+      grid-template-areas: 'backButton stepsInSidebar .' '. headingText .' '. creditCard .';
+      align-items: center;
+      justify-items: center;
+    }
   }
 
   &__backButton {
     margin-bottom: $space-xl;
+    grid-area: backButton;
+    @media (max-width: $responsiveValue) {
+      margin-bottom: 0;
+      margin-top: 45px;
+    }
+  }
+
+  &__stepsInSidebar {
+    display: none;
+    @media (max-width: $responsiveValue) {
+      display: block;
+      grid-area: stepsInSidebar;
+    }
   }
 
   &__headingText {
     margin-bottom: $space-lg;
+    grid-area: headingText;
+    max-width: 240px;
+    height: 46px;
+    @media (max-width: $responsiveValue) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__creditCard {
+    grid-area: creditCard;
   }
 
   &__form {
@@ -124,10 +166,19 @@ export default {
     align-items: flex-end;
     display: flex;
     flex-flow: column;
+    @media (max-width: $responsiveValue) {
+      padding-top: 200px;
+      padding-right: 40px;
+      padding-left: 40px;
+      max-width: 100%;
+    }
   }
 
   &__steps {
     margin-bottom: 40px;
+    @media (max-width: $responsiveValue) {
+      display: none;
+    }
   }
 
   &__fields {

@@ -48,12 +48,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$responsiveValue: 960px;
+
 .BaseBackButton {
   font-size: 13px;
   padding-left: 20px;
   display: block;
   position: relative;
   cursor: pointer;
+
+  @media (max-width: $responsiveValue) {
+    overflow: hidden;
+    width: 0px;
+  }
 
   &:before {
     @include chevronAlt($color-white);

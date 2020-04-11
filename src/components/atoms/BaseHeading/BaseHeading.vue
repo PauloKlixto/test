@@ -38,7 +38,7 @@ export default {
     border: 2px solid $color-white;
     border-radius: 50%;
     height: 40px;
-    width: 60px;
+    width: 76px;
     display: flex;
     justify-content: center;
     align-items: center;

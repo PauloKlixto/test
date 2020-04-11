@@ -1,9 +1,12 @@
 <template>
-  <section class="BaseSteps">
+  <section class="BaseSteps" :class="BaseStepsClasses">
     <section class="BaseSteps__list" v-for="item in steps" :key="item.id">
       <Icon v-show="item.active" class="BaseSteps__icon" name="check" />
       <span v-show="!item.active" class="BaseSteps__step">{{ item.step }}</span>
       <span class="BaseSteps__name">{{ item.name }}</span>
+    </section>
+    <section class="BaseSteps__responsive">
+      <strong>Etapa {{ activeStep.step }}</strong> de {{ steps.length }}
     </section>
   </section>
 </template>
@@ -15,16 +18,56 @@ export default {
     steps: {
       type: Array,
       required: true
+    },
+    invertColors: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    activeStep() {
+      return this.steps.filter(step => step.active)[0]
+    },
+    BaseStepsClasses() {
+      return { 'BaseSteps--inverted': this.invertColors }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+$responsiveValue: 960px;
+
 .BaseSteps {
   font-size: 13px;
   color: $color-red;
   display: flex;
+
+  &--inverted {
+    color: $color-white;
+
+    .BaseSteps__list {
+      &:before {
+        @include chevronAlt($color-white);
+      }
+    }
+
+    .BaseSteps__icon {
+      border: 1px solid $color-white;
+    }
+
+    .BaseSteps__step {
+      border: 1px solid $color-white;
+    }
+  }
+
+  &__responsive {
+    display: none;
+
+    @media (max-width: $responsiveValue) {
+      display: block;
+    }
+  }
 
   &__list {
     position: relative;
@@ -41,6 +84,9 @@ export default {
       &:before {
         display: none;
       }
+    }
+    @media (max-width: $responsiveValue) {
+      display: none;
     }
   }
   &__icon {

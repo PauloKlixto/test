@@ -3,17 +3,18 @@
     <TheHeader class="App__header" />
     <section class="App__container">
       <router-view class="router" />
-      <aside>Teste</aside>
+      <TheSidebar />
     </section>
   </section>
 </template>
 
 <script>
-import { TheHeader } from '@/components/organisms'
+import { TheHeader, TheSidebar } from '@/components/organisms'
 export default {
   name: 'App',
   components: {
-    TheHeader
+    TheHeader,
+    TheSidebar
   }
 }
 </script>
@@ -43,6 +44,12 @@ export default {
     display: grid;
     grid-template-columns: 1024px 1fr;
     grid-gap: $space-md;
+
+    @media (max-width: 1280px) {
+      display: flex;
+      flex-flow: column;
+      padding: 0;
+    }
   }
 }
 </style>
