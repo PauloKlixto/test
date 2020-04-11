@@ -46,6 +46,7 @@ import { DynamicForm } from '@/components/molecules'
 import { steps, paymentOptions, mockCardType } from '@/views/payment/assets'
 import blueprint from '@/views/payment/Payment.blueprint'
 import Rules from '@doc88/flux-validator-js'
+import { payment } from '@/api'
 
 export default {
   name: 'Payment',
@@ -82,9 +83,12 @@ export default {
     },
 
     async onSubmit() {
-      console.log('enviou')
-
-      // const res = await payment.paymentData(this.form, (r) => r, (e) => e, () => this.setLoading(false))
+      const res = await payment.fechPayment(
+        this.form,
+        r => r,
+        e => e
+      )
+      console.log(res)
 
       // if (res.validation) return this.endpointErrors = res.validation
       // if(!res.message) this.$router.push('/conclusion')

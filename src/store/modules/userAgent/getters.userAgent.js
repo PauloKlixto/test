@@ -44,32 +44,32 @@ export default {
   OS() {
     var result = undefined
     switch (navigator.platform.toLowerCase()) {
-    case 'iphone':
-    case 'ipod':
-    case 'ipad':
-    case 'iphone simulator':
-    case 'ipod simulator':
-    case 'ipad simulator':
-      result = 'ios'
-      break
-    case 'macintosh':
-    case 'macintel':
-    case 'macppc':
-    case 'mac68k':
-      result = 'osx'
-      break
-    case 'android':
-      result = 'android'
-      break
-    case 'os/2':
-    case 'wince':
-    case 'pocket pc':
-    case 'windows':
-      result = 'windows'
-      break
-    case 'blackberry':
-      result = 'blackberry'
-      break
+      case 'iphone':
+      case 'ipod':
+      case 'ipad':
+      case 'iphone simulator':
+      case 'ipod simulator':
+      case 'ipad simulator':
+        result = 'ios'
+        break
+      case 'macintosh':
+      case 'macintel':
+      case 'macppc':
+      case 'mac68k':
+        result = 'osx'
+        break
+      case 'android':
+        result = 'android'
+        break
+      case 'os/2':
+      case 'wince':
+      case 'pocket pc':
+      case 'windows':
+        result = 'windows'
+        break
+      case 'blackberry':
+        result = 'blackberry'
+        break
     }
 
     if (/linux armv+(\d{1}l)/i.test(navigator.platform)) {

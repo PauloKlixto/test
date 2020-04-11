@@ -127,6 +127,12 @@ O blueprint é importado e adicionado ao methods da página para poder receber p
 
 Para criar o cartão de crédito aproveitei a reatividade dos elementos do formulário e a validação dos números do cartão para saber sua bandeira. As animações foram feitas com CSS e sua versão responsiva também.
 
+## API mocked
+
+Para enviar o endpoint criei um service de api utilizando Axios, e uma camada de tratamento do dado com um único *try/catch* chamada request. Na pasta payment, vai a listagem de endpoints utilizado para essa seção, onde colocamos o endpoint fake. O controle de ambiente para cada ambiente é apontado num arquivo .env que normalmente fica no gitignore, mas que nesse caso adicionei ao git para poder ser visto.
+
+
+
 
 
 ### Customize configuration
