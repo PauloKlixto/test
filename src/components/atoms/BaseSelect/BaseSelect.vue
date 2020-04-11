@@ -7,21 +7,16 @@
       name="BaseSelect__input"
     />
 
-    <label class="BaseSelect__label">{{ label }}</label>
+    <label class="BaseSelect__label" :class="BaseSelectLabelClasses">
+      {{ label }}
+    </label>
     <div class="BaseSelect__container" :class="{ open: menuOpen }">
       <div
         class="BaseSelect__selectedContainer"
         @click.prevent.stop="toggleSelect"
       >
-        <div
-          v-if="hasOneOption"
-          class="BaseSelect__selected"
-          :title="options[0].name"
-        >
-          {{ options[0].name }}
-        </div>
-        <div v-else class="BaseSelect__selected" :title="value.name">
-          {{ value.name ? value.name : 'Selecione' }}
+        <div class="BaseSelect__selected" :title="value.name">
+          {{ value.name }}
         </div>
       </div>
 
@@ -104,8 +99,8 @@ export default {
       return { 'BaseSelect--invalid': this.isInvalid }
     },
 
-    hasOneOption() {
-      return this.options.length === 1
+    BaseSelectLabelClasses() {
+      return { 'BaseSelect__label--upwards': !!this.value || this.menuOpen }
     }
   },
   watch: {
@@ -113,9 +108,6 @@ export default {
     value(val) {
       if (typeof val === 'string' || typeof val === 'number')
         this.$emit('input', { id: val, name: val })
-    },
-    options() {
-      this.emitOptionsLengthOne()
     }
   },
 
@@ -144,10 +136,6 @@ export default {
       this.$emit('input', option)
       this.$emit('blur', option)
       this.close()
-    },
-
-    emitOptionsLengthOne() {
-      if (this.hasOneOption) this.$emit('input', this.options[0])
     }
   }
 }
@@ -163,8 +151,15 @@ export default {
     }
   }
   &__label {
-    font-size: 13px;
+    font-size: 17px;
     color: $color-light;
+    transform: translateY(10px);
+    display: block;
+
+    &--upwards {
+      font-size: 13px;
+      transform: translateY(0px);
+    }
   }
   &__container {
     position: relative;
@@ -173,13 +168,14 @@ export default {
 
     &:before {
       @include chevronAlt($color-red);
-      right: -10px;
-      transform: rotateZ(225deg) translateY(-20px);
+      right: 5px;
+      bottom: 10px;
+      transform: rotateZ(225deg);
     }
 
     &.open {
       &:before {
-        transform: rotateZ(45deg) translateY(20px);
+        transform: rotateZ(45deg);
       }
     }
 
