@@ -41,6 +41,7 @@ import {
   BaseSteps
 } from '@/components/atoms'
 import { DynamicForm } from '@/components/molecules'
+import { steps, paymentOptions, mockCardType } from '@/views/payment/assets'
 import blueprint from '@/views/payment/Payment.blueprint'
 import Rules from '@doc88/flux-validator-js'
 
@@ -63,49 +64,9 @@ export default {
         card_installments: ''
       },
       endpointErrors: {},
-      cardType: {
-        company: '',
-        name: 'creditCardNumber',
-        valid: false
-      },
-      steps: [
-        {
-          id: 1,
-          step: 1,
-          name: 'Carrinho',
-          active: true
-        },
-        {
-          id: 2,
-          step: 2,
-          name: 'Pagamento',
-          active: false
-        },
-        {
-          id: 3,
-          step: 3,
-          name: 'Confirmação',
-          active: false
-        }
-      ],
-      paymentOptions: [
-        {
-          id: 0,
-          name: '12x R$1.000,00 sem juros'
-        },
-        {
-          id: 1,
-          name: '6x R$2.000,00 sem juros'
-        },
-        {
-          id: 2,
-          name: '3x R$4.000,00 sem juros'
-        },
-        {
-          id: 3,
-          name: '1x R$12.000,00 sem juros'
-        }
-      ]
+      cardType: mockCardType,
+      steps,
+      paymentOptions
     }
   },
   methods: {
@@ -114,11 +75,7 @@ export default {
     getCardType() {
       this.cardType =
         this.form.card_number === ''
-          ? {
-              company: '',
-              name: 'creditCardNumber',
-              valid: false
-            }
+          ? mockCardType
           : Rules.creditCardNumber('creditCardNumber', this.form.card_number)
     },
 
