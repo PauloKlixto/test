@@ -22,11 +22,6 @@ yarn serve
 yarn build
 ```
 
-### Run your unit tests
-```
-yarn test:unit
-```
-
 ### Lints and fixes files
 ```
 yarn lint
@@ -126,6 +121,20 @@ O blueprint é importado e adicionado ao methods da página para poder receber p
 ## Cartão de Crédito
 
 Para criar o cartão de crédito aproveitei a reatividade dos elementos do formulário e a validação dos números do cartão para saber sua bandeira. As animações foram feitas com CSS e sua versão responsiva também.
+
+## Testes unitários
+
+Foram feitos testes unitários com a ferramenta Jest com cobertura atual de 81% de coverage de testes. Os arquivos de testes estão estruturados nas mesmas pastas dos componentes para facilitar a manutenção dos mesmos. Também foram feitos testes de snapshots que estão disponíveis em cada componente. Segue os scripts para rodar os testes:
+
+### Rodar os testes
+```
+yarn test
+```
+
+### Rodar os testes com auto-reload
+```
+yarn test:watch
+```
 
 ## API mocked
 
