@@ -3,7 +3,7 @@
 ## Documentação do Projeto de Teste
 
 Bem vindo ao projeto de teste para BEXS. Refere-se a uma tela de simulação de pagamento baseada no Ui a seguir:
-(Adobe Xd)[https://xd.adobe.com/spec/9c4a9206-ac61-4050-796d-89c00fb79e91-ea7b/]
+[Adobe Xd](https://xd.adobe.com/spec/9c4a9206-ac61-4050-796d-89c00fb79e91-ea7b/)
 
 A tecnologia utilizada para realização desse projeto foi um sistema em Vue.js configurado com Vuex, Router, Eslint + Prettier e o framework de testes unitários Jest. Também foi utilizado como pré processador de CSS o SCSS e a estruturação lógica feita em Javascript. Abaixo segue instruções para rodar o projeto e detalhamento de arquitetura.
 
