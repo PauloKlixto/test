@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseSteps Componente não alterado 1`] = `
+"<section class=\\"BaseSteps\\">
+  <section class=\\"BaseSteps__list\\">
+    <icon-stub name=\\"check\\" path=\\"icons\\" class=\\"BaseSteps__icon\\"></icon-stub> <span class=\\"BaseSteps__step\\" style=\\"display: none;\\">1</span> <span class=\\"BaseSteps__name\\">Carrinho</span>
+  </section>
+  <section class=\\"BaseSteps__list\\">
+    <icon-stub name=\\"check\\" path=\\"icons\\" class=\\"BaseSteps__icon\\" style=\\"display: none;\\"></icon-stub> <span class=\\"BaseSteps__step\\">2</span> <span class=\\"BaseSteps__name\\">Pagamento</span>
+  </section>
+  <section class=\\"BaseSteps__list\\">
+    <icon-stub name=\\"check\\" path=\\"icons\\" class=\\"BaseSteps__icon\\" style=\\"display: none;\\"></icon-stub> <span class=\\"BaseSteps__step\\">3</span> <span class=\\"BaseSteps__name\\">Confirmação</span>
+  </section>
+  <section class=\\"BaseSteps__responsive\\"><strong>Etapa 1</strong> de 3
+  </section>
+</section>"
+`;

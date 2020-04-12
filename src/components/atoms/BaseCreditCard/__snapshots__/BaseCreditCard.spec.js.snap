@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseCreditCard Componente não alterado 1`] = `
+"<section class=\\"BaseCreditCard\\">
+  <div class=\\"BaseCreditCard__background\\" style=\\"background-size: cover; background-repeat: no-repeat; background-image: url(credit-card-inative.svg);\\">
+    <div class=\\"BaseCreditCard__top\\">
+      <!---->
+    </div>
+    <div class=\\"BaseCreditCard__bottom\\"><em class=\\"BaseCreditCard__cardNumber\\">
+        **** **** **** ****
+      </em> <em class=\\"BaseCreditCard__cardName\\">
+        Nome do titular
+      </em> <em class=\\"BaseCreditCard__validAt\\"><span class=\\"BaseCreditCard__validAt--value\\">
+          00/00
+        </span></em></div>
+    <div class=\\"BaseCreditCard__cvv\\"><em></em></div>
+  </div>
+</section>"
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DynamicForm Componente não alterado 1`] = `
+"<form class=\\"DynamicForm\\">
+  <inputgroup-stub value=\\"\\" label=\\"E-mail\\" floatinglabel=\\"true\\" debouncetime=\\"500\\" mask=\\"\\" invalidlabel=\\"E-mail inválido\\" model=\\"[object Object]\\" data-test=\\"email\\" invalid=\\"E-mail inválido\\" invalid-fields=\\"\\" autocomplete=\\"no\\" type=\\"email\\" autofillcolor=\\"yellow\\" class=\\"DynamicForm__email \\" style=\\"grid-area: email;\\">
+
+  </inputgroup-stub>
+  <inputgroup-stub value=\\"\\" label=\\"Senha\\" floatinglabel=\\"true\\" debouncetime=\\"500\\" mask=\\"\\" invalidlabel=\\"Senha inválida\\" model=\\"[object Object]\\" data-test=\\"password\\" invalid=\\"Senha inválida\\" invalid-fields=\\"\\" autocomplete=\\"no\\" type=\\"password\\" autofillcolor=\\"yellow\\" class=\\"DynamicForm__password \\" style=\\"grid-area: password;\\">
+
+  </inputgroup-stub>
+</form>"
+`;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Payment Componente não alterado 1`] = `
+"<main class=\\"Payment\\">
+  <section class=\\"Payment__sidebar\\">
+    <basebackbutton-stub tag=\\"a\\" label=\\"Alterar forma de pagamento\\" isinvertedtheme=\\"true\\" class=\\"Payment__backButton\\"></basebackbutton-stub>
+    <basesteps-stub steps=\\"[object Object],[object Object],[object Object]\\" invertcolors=\\"true\\" class=\\"Payment__stepsInSidebar\\"></basesteps-stub>
+    <baseheading-stub label=\\"Adicione um novo cartão de crédito\\" icon=\\"credit-card\\" class=\\"Payment__headingText\\"></baseheading-stub>
+    <basecreditcard-stub cardnumber=\\"4325\\" cardname=\\"\\" carddate=\\"\\" cardcvv=\\"\\" company=\\"visa\\" class=\\"Payment__creditCard\\"></basecreditcard-stub>
+  </section>
+  <section class=\\"Payment__form\\">
+    <basesteps-stub steps=\\"[object Object],[object Object],[object Object]\\" class=\\"Payment__steps\\"></basesteps-stub>
+    <dynamicform-stub model=\\"[object Object]\\" blueprint=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" endpointerrors=\\"[object Object]\\" class=\\"Payment__fields\\"></dynamicform-stub>
+  </section>
+</main>"
+`;

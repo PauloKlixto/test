@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TheHeader Componente não alterado 1`] = `
+"<section class=\\"TheHeader\\">
+  <section class=\\"TheHeader__container\\">
+    <icon-stub name=\\"logo\\" path=\\"icons\\"></icon-stub>
+    <ul class=\\"TheHeader__mockMenu\\">
+      <li class=\\"TheHeader__mockMenuItem\\"></li>
+      <li class=\\"TheHeader__mockMenuItem\\"></li>
+      <li class=\\"TheHeader__mockMenuItem\\"></li>
+      <li class=\\"TheHeader__mockMenuItem\\"></li>
+      <li class=\\"TheHeader__mockMenuItem\\"></li>
+    </ul>
+  </section>
+</section>"
+`;

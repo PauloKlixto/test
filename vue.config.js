@@ -8,5 +8,6 @@ module.exports = {
         data: '@import "~@/assets/scss/scoped.scss";'
       }
     }
-  }
+  },
+  lintOnSave: true
 }

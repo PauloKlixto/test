@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseButton Componente não alterado 1`] = `
+"<button type=\\"button\\" class=\\"BaseButton\\">
+  <!----></button>"
+`;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputGroup Componente não alterado 1`] = `
+"<div class=\\"InputGroup\\">
+  <!----> <input class=\\"InputGroup__input\\">
+  <!---->
+</div>"
+`;

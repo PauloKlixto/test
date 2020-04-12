@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseSelect Componente não alterado 1`] = `
+"<div class=\\"BaseSelect\\"><input type=\\"hidden\\" name=\\"BaseSelect__input\\"> <label class=\\"BaseSelect__label BaseSelect__label--upwards\\">
+
+  </label>
+  <div class=\\"BaseSelect__container\\">
+    <div class=\\"BaseSelect__selectedContainer\\">
+      <div class=\\"BaseSelect__selected\\">
+
+      </div>
+    </div>
+    <div class=\\"BaseSelect__Items\\" style=\\"max-height: 0px;\\"></div>
+  </div>
+  <!---->
+</div>"
+`;

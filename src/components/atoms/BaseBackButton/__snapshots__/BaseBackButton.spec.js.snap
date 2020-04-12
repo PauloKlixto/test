@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseBackButton Componente não alterado 1`] = `
+"<section><a class=\\"BaseBackButton\\">
+
+  </a></section>"
+`;

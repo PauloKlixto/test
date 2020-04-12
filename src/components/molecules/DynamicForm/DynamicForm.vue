@@ -161,9 +161,7 @@ export default {
       this.setInvalidFields()
       this.$emit('beforeSubmit')
 
-      this.invalidFields.length
-        ? window.scrollTo(0, 0)
-        : this.$emit('submit', this.model)
+      if (!this.invalidFields.length) this.$emit('submit', this.model)
     }
   }
 }

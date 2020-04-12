@@ -69,7 +69,8 @@ export default {
       endpointErrors: {},
       cardType: mockCardType,
       steps,
-      paymentOptions
+      paymentOptions,
+      result: {}
     }
   },
   methods: {
@@ -83,12 +84,11 @@ export default {
     },
 
     async onSubmit() {
-      const res = await payment.fechPayment(
+      this.result = await payment.fechPayment(
         this.form,
         r => r,
         e => e
       )
-      console.log(res)
 
       // if (res.validation) return this.endpointErrors = res.validation
       // if(!res.message) this.$router.push('/conclusion')
